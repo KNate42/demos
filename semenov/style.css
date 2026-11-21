@@ -1,0 +1,629 @@
+:root {
+  color-scheme: light;
+  --paper: #f9ede2;
+  --paper-light: #fff6ed;
+  --blush: #f0d5ce;
+  --ink: #341c20;
+  --muted: #694a49;
+  --wine: #45252c;
+  --wine-shadow: #30191e;
+  --wine-light: #6b363e;
+  --cream: #fff2e5;
+  --rose: #f4c9bd;
+  --copper: #97513c;
+  --gold: #f3be88;
+  --gold-light: #ffd1a5;
+  --rule: #d7b8ae;
+  --dark-rule: #9a6668;
+  --engraving: #bf8a76;
+
+  --body-font: "Commissioner", Arial, sans-serif;
+  --display-font: "Cormorant Garamond", Georgia, serif;
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 2rem;
+  --space-8: 2.5rem;
+  --space-9: 3rem;
+  --space-10: 4rem;
+  --gutter: clamp(var(--space-4), 5vw, 5rem);
+  --section-space: clamp(var(--space-9), 7vw, 7rem);
+  --shell: 78rem;
+  --tap: 44px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: var(--space-4);
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1rem/1.5 var(--body-font);
+}
+
+h1, h2, h3, p, dl, dd, figure, blockquote {
+  margin: 0;
+}
+
+h1, h2, h3, .wordmark {
+  font-family: var(--display-font);
+  font-weight: 700;
+  line-height: .95;
+}
+
+h2 {
+  font-size: clamp(3.25rem, 6.2vw, 6rem);
+  letter-spacing: -.045em;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: .25em;
+}
+
+a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: var(--space-1);
+}
+
+.shell {
+  width: min(calc(100% - 2 * var(--gutter)), var(--shell));
+  margin-inline: auto;
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 var(--space-3);
+  min-height: 4rem;
+  padding-block: var(--space-2);
+}
+
+.wordmark {
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  letter-spacing: -.04em;
+  text-decoration: none;
+}
+
+.site-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 clamp(.5rem, 2.8vw, 2.25rem);
+}
+
+.wordmark, .site-header nav a, .text-link, .hero-address, .rating {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+}
+
+.site-header nav a {
+  font-size: .875rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-header a:hover, .text-link:hover, .site-footer a:hover {
+  color: var(--copper);
+}
+
+.site-header nav a:hover {
+  text-decoration: underline;
+}
+
+.hero, .visit, .site-footer {
+  color: var(--cream);
+  background-color: var(--ink);
+}
+
+.hero {
+  background-image: radial-gradient(ellipse at 78% 36%, var(--wine-light), var(--wine) 38%, var(--wine-shadow) 83%);
+}
+
+.hero-inner {
+  display: grid;
+  align-items: center;
+  gap: var(--space-4);
+  padding-block: clamp(var(--space-8), 7vw, 7rem) var(--space-7);
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: .875rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin-top: var(--space-2);
+  font-size: clamp(4.6rem, 14vw, 10.5rem);
+  letter-spacing: -.055em;
+}
+
+.hero-description {
+  margin-top: var(--space-5);
+  color: var(--rose);
+  font-size: clamp(1rem, 2.1vw, 1.4rem);
+}
+
+.hero-actions, .visit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  padding: var(--space-3) var(--space-5);
+  border: 1px solid transparent;
+  border-radius: 100vmax;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button-primary {
+  color: var(--ink);
+  background: var(--gold);
+}
+
+.button-primary:hover {
+  background: var(--gold-light);
+}
+
+.hero-address {
+  color: var(--cream);
+  font-size: .875rem;
+  text-decoration-color: var(--engraving);
+}
+
+.hero-address:hover {
+  color: var(--gold);
+}
+
+.place-setting {
+  position: relative;
+  justify-self: center;
+  width: min(100%, 34rem);
+  aspect-ratio: 1.17;
+  display: grid;
+  place-items: center;
+}
+
+.place-setting::before {
+  position: absolute;
+  inset: 4% 12%;
+  border: 1px solid var(--dark-rule);
+  border-radius: 49% 49% 10% 10% / 54% 54% 10% 10%;
+  content: "";
+}
+
+.placemat {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1.17;
+}
+
+.plate {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 65%;
+  aspect-ratio: 1;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--wine-light) 14%, var(--wine-shadow) 54%, var(--wine) 66%, var(--wine-shadow));
+  box-shadow: 0 .8rem 1.8rem var(--wine-shadow), inset 0 0 0 .27rem var(--wine), inset 0 0 0 .35rem var(--engraving);
+}
+
+.plate::before, .plate::after {
+  position: absolute;
+  border-radius: inherit;
+  content: "";
+}
+
+.plate::before {
+  inset: 5.7%;
+  border: 1px dashed var(--engraving);
+}
+
+.plate::after {
+  inset: 15%;
+  border: 1px solid var(--engraving);
+  box-shadow: 0 0 0 .25rem var(--wine), inset 0 0 0 .35rem var(--wine);
+}
+
+.plate-monogram {
+  position: relative;
+  z-index: 1;
+  color: var(--gold);
+  font: 600 clamp(3.75rem, 12vw, 8.5rem)/.9 var(--display-font);
+  transform: translate(-.04em, -.055em);
+}
+
+.plate-monogram::after, .setting-mark {
+  position: absolute;
+  width: .45rem;
+  aspect-ratio: 1;
+  background-color: var(--gold);
+  transform: rotate(45deg);
+}
+
+.plate-monogram::after {
+  top: 53%;
+  right: 10%;
+  width: .105em;
+  content: "";
+}
+
+.setting-mark-top {
+  top: 3.2%;
+  left: calc(50% - .225rem);
+}
+
+.setting-mark-bottom {
+  bottom: 3.2%;
+  left: calc(50% - .225rem);
+}
+
+.fork, .knife {
+  position: absolute;
+  top: 50%;
+  width: 1.1%;
+  height: 39%;
+  border: 1px solid var(--engraving);
+  border-radius: 100vmax;
+  transform: translateY(-39%);
+}
+
+.fork {
+  left: 9%;
+}
+
+.knife {
+  right: 9%;
+}
+
+.fork::before, .knife::before {
+  position: absolute;
+  bottom: 98%;
+  width: clamp(.55rem, 2.8vw, 1.1rem);
+  height: 43%;
+  border: 1px solid var(--engraving);
+  content: "";
+}
+
+.fork::before {
+  left: 50%;
+  border-top: 0;
+  border-radius: 0 0 45% 45% / 0 0 23% 23%;
+  background: repeating-linear-gradient(90deg, transparent 0 22%, var(--engraving) 23% 30%, transparent 31% 35%);
+  transform: translateX(-50%);
+}
+
+.knife::before {
+  right: -1px;
+  border-radius: 0 85% 0 0 / 0 56% 0 0;
+}
+
+.kitchen {
+  padding-block: var(--section-space);
+}
+
+.kitchen-inner {
+  display: grid;
+  gap: var(--space-7) var(--space-10);
+}
+
+.kitchen-intro p {
+  margin-top: var(--space-4);
+  color: var(--muted);
+}
+
+.kitchen-intro p + p {
+  margin-top: var(--space-1);
+}
+
+.text-link {
+  gap: var(--space-2);
+  font-size: .9375rem;
+  font-weight: 600;
+}
+
+.kitchen-item {
+  padding-block: var(--space-5);
+  border-top: 1px solid var(--rule);
+}
+
+.kitchen-item:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.kitchen-item h3 {
+  font-size: clamp(2rem, 4.1vw, 3.55rem);
+  letter-spacing: -.035em;
+}
+
+.kitchen-item p {
+  margin-top: var(--space-2);
+  color: var(--muted);
+}
+
+.occasions {
+  padding-block: clamp(var(--space-8), 5vw, 5rem);
+  background: var(--blush);
+}
+
+.occasions-inner, .occasions-list {
+  display: grid;
+  gap: var(--space-5) var(--space-7);
+}
+
+.occasions h2 {
+  font-size: clamp(2.7rem, 5vw, 4.25rem);
+}
+
+.occasions-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--space-4);
+}
+
+.occasions-list > div {
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--rule);
+}
+
+.occasions-list dt {
+  font-weight: 700;
+}
+
+.occasions-list dd {
+  margin-top: var(--space-1);
+  color: var(--muted);
+}
+
+.reviews {
+  padding-block: var(--section-space);
+  background: var(--paper-light);
+}
+
+.reviews-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.rating {
+  gap: var(--space-2);
+  color: var(--muted);
+  font-size: .875rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.rating:hover {
+  text-decoration: underline;
+}
+
+.rating strong {
+  color: var(--ink);
+  font: 700 2.35rem/1 var(--display-font);
+}
+
+.rating-star {
+  color: var(--copper);
+  font-size: 1.15em;
+}
+
+.reviews-grid {
+  display: grid;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-width: 0;
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--rule);
+}
+
+.review:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.review blockquote {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.review figcaption {
+  color: var(--muted);
+  font-size: .875rem;
+}
+
+.visit {
+  padding-block: var(--section-space);
+}
+
+.visit-inner {
+  display: grid;
+  gap: var(--space-8) var(--space-10);
+}
+
+.visit h2 {
+  max-width: 10ch;
+}
+
+.visit-details {
+  display: grid;
+  align-content: start;
+  gap: var(--space-3);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--dark-rule);
+}
+
+.visit-details address {
+  font-style: normal;
+}
+
+.visit .text-link, .site-footer a {
+  color: var(--rose);
+}
+
+.visit .text-link:hover, .site-footer a:hover {
+  color: var(--gold);
+}
+
+.hours {
+  display: grid;
+  gap: var(--space-2);
+  max-width: 19rem;
+}
+
+.hours > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-1) var(--space-3);
+}
+
+.hours dd {
+  font-variant-numeric: tabular-nums;
+}
+
+.payment {
+  color: var(--rose);
+  font-size: .875rem;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer .shell {
+  padding-block: var(--space-3);
+  border-top: 1px solid var(--dark-rule);
+  color: var(--rose);
+  font-size: .8125rem;
+}
+
+.site-footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+}
+
+@media (min-width: 34rem) {
+  .reviews-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-5);
+  }
+
+  .review:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (min-width: 48rem) {
+  .header-inner {
+    min-height: 4.65rem;
+  }
+
+  .hero-inner {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    padding-bottom: clamp(var(--space-8), 7vw, 7rem);
+  }
+
+  .hero h1 {
+    font-size: clamp(4.6rem, 11.5vw, 10.5rem);
+  }
+
+  .kitchen-inner, .occasions-inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr);
+  }
+
+  .reviews-header {
+    margin-bottom: var(--space-7);
+  }
+
+  .visit-inner {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .visit-details {
+    padding-top: 0;
+    padding-left: var(--space-7);
+    border-top: 0;
+    border-left: 1px solid var(--dark-rule);
+  }
+}
+
+@media (min-width: 64rem) {
+  .occasions-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: var(--space-5);
+  }
+
+  .reviews-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    column-gap: 0;
+    border-block: 1px solid var(--rule);
+  }
+
+  .review {
+    min-height: 9rem;
+    padding: var(--space-5);
+    border-top: 0;
+    border-left: 1px solid var(--rule);
+  }
+
+  .review:first-child {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .review:last-child {
+    padding-right: 0;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  a {
+    transition: color .18s ease, background-color .18s ease;
+  }
+}
